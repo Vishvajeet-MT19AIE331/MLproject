@@ -1,4 +1,6 @@
 # A CNN model on cifar10 dataset
+# We make a new branch with the best model parameters lr=0.01, momentum=0.7 and merge this
+# We DONOT merge the Experiments branch and discard it
 
 import torch
 import torchvision
@@ -61,7 +63,7 @@ class Net(nn.Module):
 net = Net()
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(net.parameters(), lr=0.001, momentum=0.9)
+optimizer = optim.Adam(net.parameters(), lr=0.01, momentum=0.7)
 
 for epoch in range(2):  # loop over the dataset multiple times
 
