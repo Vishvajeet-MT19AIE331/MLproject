@@ -1,5 +1,5 @@
 # A CNN model on cifar10 dataset
-# Experiment-1 with lr=0.001, momentum=0.9
+# Experiment-2 with lr=0.01, momentum=0.7
 
 import torch
 import torchvision
@@ -59,7 +59,7 @@ class Net(nn.Module):
 net = Net()
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+optimizer = optim.SGD(net.parameters(), lr=0.01, momentum=0.7)
 
 for epoch in range(1):  # loop over the dataset multiple times
 
@@ -96,4 +96,4 @@ with torch.no_grad():
         total += labels.size(0)
         correct += (predicted == labels).sum().item()
 
-print(f'Accuracy of the network on the 10000 test images: {100 * correct // total} %')  
+print(f'Accuracy of the network on the 10000 test images: {100 * correct // total} %') 
