@@ -15,7 +15,6 @@ from torch.utils.data import random_split,ConcatDataset
 from torchvision import datasets, transforms, models
 import torch.optim as optim
 from sklearn.metrics import precision_score, recall_score, classification_report, confusion_matrix
-%matplotlib inline
 
 transform = transforms.Compose(
     [transforms.ToTensor(),
@@ -36,9 +35,7 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
 classes = ('plane', 'car', 'bird', 'cat',
            'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
- import torch.nn as nn
-import torch.nn.functional as F
-
+ 
 
 class Net(nn.Module):
     def __init__(self):
@@ -63,7 +60,9 @@ class Net(nn.Module):
 net = Net()
 
 criterion = nn.CrossEntropyLoss()
+
 optimizer = optim.Adam(net.parameters(), lr=0.01, momentum=0.7)
+
 
 for epoch in range(2):  # loop over the dataset multiple times
 
